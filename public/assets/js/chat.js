@@ -36,10 +36,13 @@ var messages = document.getElementById("messages");
       json.map(data => {
         let li = document.createElement("li");
         let span = document.createElement("span");
+        
+        
         messages.appendChild(li).append(data.message);
         messages
           .appendChild(span)
           .append("by " + data.sender + ": " + data.createdAt);
+         
       });
     });
 })();
