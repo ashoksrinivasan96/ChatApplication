@@ -4,7 +4,7 @@ var messages = document.getElementById("messages");
 (function() {
   $("form").submit(function(e) {
     let li = document.createElement("li");
-    e.preventDefault(); // prevents page reloading
+    e.preventDefault(); // to prevent page from reloading, we use this function
     socket.emit("chat message", $("#message").val());
 
     messages.appendChild(li).append($("#message").val());
@@ -39,7 +39,7 @@ var messages = document.getElementById("messages");
         messages.appendChild(li).append(data.message);
         messages
           .appendChild(span)
-          .append("by " + data.sender + ": " + formatTimeAgo(data.createdAt));
+          .append("by " + data.sender + ": " + data.createdAt);
       });
     });
 })();
